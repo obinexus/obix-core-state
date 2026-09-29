@@ -1,0 +1,99 @@
+{
+  "package": "obix-core-state",
+  "dir": "core/obix-core-state",
+  "importedBy": "scripts/recovery/import-packages.mjs",
+  "snapshot": "snap-20260924T142414Z",
+  "stage": "stage-2 lift-and-shift (base owner; later stages repair/merge)",
+  "sources": [
+    {
+      "label": "upstream:obix-core-state@87d4d16",
+      "repo": "obix-core-state",
+      "url": "https://github.com/obinexusmk2/obix-core-state",
+      "sha": "87d4d16e140c9b36c5b95d339e7739b6105a7920",
+      "path": ".",
+      "license": "MIT",
+      "licenseFileUpstream": false,
+      "filesImported": 8,
+      "filesExcluded": 6
+    }
+  ],
+  "originalManifest": {
+    "name": "@obinexusltd/obix-core-state",
+    "version": "0.1.0",
+    "license": "MIT",
+    "bin": null,
+    "scripts": {
+      "build": "tsc",
+      "test": "echo 'no tests yet'"
+    }
+  },
+  "transforms": [
+    "package.json regenerated (lockstep version, exact internal pins, exports with \"types\" first, standard scripts)",
+    "tsconfig.json generated (NodeNext via tsconfig.base.json)",
+    "internal specifiers renamed: none",
+    "relative imports given \".js\"/\"/index.js\" extensions: 0",
+    "dependencies added: @obinexusltd/obix-core-state-minimizer (imported by src but undeclared)",
+    "LICENSE generated from the declared MIT license (upstream repo had no LICENSE file)"
+  ],
+  "localFixes": [
+    {
+      "file": "docs/transitions-and-guards.md",
+      "why": "upstream doc predates the implementation and says nothing runs; banner points at the implemented behaviour"
+    },
+    {
+      "file": "docs/state-machine-minimization.md",
+      "why": "upstream doc predates the implementation and says nothing runs; banner points at the implemented behaviour"
+    },
+    {
+      "file": "docs/api-reference.md",
+      "why": "upstream doc predates the implementation and says nothing runs; banner points at the implemented behaviour"
+    },
+    {
+      "file": "docs/automaton-types.md",
+      "why": "upstream doc predates the implementation and says nothing runs; banner points at the implemented behaviour"
+    },
+    {
+      "stage": "naming-migration",
+      "files": [
+        "README.md"
+      ],
+      "why": "D-41: same false peer-dependency claim on obix-sdk-core removed; the README states the one real dependency (core-state-minimizer)."
+    }
+  ],
+  "scopeScrub": {
+    "rule": "scripts/recovery/scrub-rules.mjs (brief: no other OBINexus projects)",
+    "replacementsPerFile": {}
+  },
+  "authoredOverlay": [
+    "docs/implementation-status.md",
+    "src/index.ts",
+    "test/state-machine.test.mjs"
+  ],
+  "excluded": [
+    "dist/**",
+    "node_modules/**",
+    "lockfiles",
+    "tsconfig*.json (regenerated)",
+    ".gitignore",
+    ".github/**",
+    "coverage/**"
+  ],
+  "unresolvedRelativeImports": [],
+  "note": "UPSTREAM WAS A STUB: createStateMachine returned an object whose every method threw \"Not yet implemented\" (its own docs say so), yet it is published as @obinexusltd/obix-core-state@0.1.0 and is the umbrella `State` namespace. src/index.ts is replaced by an authored implementation built on core-state-minimizer (partition refinement); the open semantic questions in the upstream docs are decided in docs/implementation-status.md.",
+  "renamedFrom": [
+    {
+      "name": "@obinexusltd/obix-core-state",
+      "dir": "core/obix-core-state",
+      "stage": "unscoped-naming",
+      "why": "D-102 (2026-09-29): OBIX packages are named without an npm scope — previous name @obinexusltd/obix-core-state, current name obix-core-state (docs/recovery/unscoped-migration.md); the directory, version and exports are unchanged"
+    }
+  ],
+  "export": {
+    "from": "https://github.com/obinexusmk2/obix-monorepo",
+    "branch": "recovery/obix-api-preserving-rebuild",
+    "commit": "69cafc94910c1add865a520877617ac307668875",
+    "directory": "core/obix-core-state",
+    "exportedBy": "scripts/release/export-repos.mjs",
+    "note": "a clean initial commit of this package; the monorepo history is not imported (D-103). Local machine paths in this record are replaced by <local workspace>."
+  }
+}
